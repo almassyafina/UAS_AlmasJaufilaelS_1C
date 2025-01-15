@@ -1,20 +1,15 @@
+import pandas as pd
 
-import numpy as np
+data =[
+    'Nama':['Mahasiswa1','Mahasiswa2','Mahasiswa3'],
+    'Algoritma dan struktur data 2' :[90,50,65],
+    'Matematika Numerik': [80,60,70]
+]
 
-jumlah_siswa = int(input("Masukkan jumlah siswa: "))
-nilai_siswa = []
+df= pd.DataFrame(data)
 
-for i in range(jumlah_siswa):
-    nilai = int(input(f"Masukkan nilai siswa ke-{i + 1}: "))
-    nilai_siswa.append(nilai)
+rata_matkul = df.mean()
+rata_maha = df.index(axis=1)
 
-nilai_siswa = np.array(nilai_siswa)
-rata_rata = np.mean(nilai_siswa)
-nilai_tertinggi = np.max(nilai_siswa)
-nilai_terendah = np.min(nilai_siswa)
-siswa_di_atas_rata_rata = np.sum(nilai_siswa > rata_rata)
-
-print(f"Nilai rata-rata: {rata_rata}")
-print(f"Nilai tertinggi: {nilai_tertinggi}")
-print(f"Nilai terendah: {nilai_terendah}")
-print(f"Jumlah siswa di atas rata-rata: {siswa_di_atas_rata_rata}")
+print(f'Rata-rata nilai setiap mata kuliah:{rata_matkul} ')
+print(f'Rata-rata nilai mahsiswa : {rata_maha}')
