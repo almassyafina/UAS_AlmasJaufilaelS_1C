@@ -1,15 +1,26 @@
 import pandas as pd
 
-data =[
+data ={
+    'Nama':['Mahasiswa1','Mahasiswa2','Mahasiswa3'],
+    'Algoritma dan struktur data 2' :[90,50,65],
+    'Matematika Numerik': [80,60,70]
+}
+df= pd.DataFrame[
     'Nama':['Mahasiswa1','Mahasiswa2','Mahasiswa3'],
     'Algoritma dan struktur data 2' :[90,50,65],
     'Matematika Numerik': [80,60,70]
 ]
+index=['Mahasiswa1','Mahasiswa2','Mahasiswa3'],
+columns=['Nama','Algoritma dan struktur data 2','Matematika Numerik']
 
-df= pd.DataFrame(data)
+df['Algoritma'] = [90,50,65]
+df['Matematika Numerik'] = [80,60,70]
 
-rata_matkul = df.mean()
-rata_maha = df.index(axis=1)
+df['total'] = df.sum(axis=1)
 
-print(f'Rata-rata nilai setiap mata kuliah:{rata_matkul} ')
-print(f'Rata-rata nilai mahsiswa : {rata_maha}')
+df.loc['total'] = df.sum(axis=0)
+
+print(df)
+
+index_nilai_tertinggi_perbaris = df.idxmax(axis=0)
+print(index_nilai_tertinggi_perbaris)
