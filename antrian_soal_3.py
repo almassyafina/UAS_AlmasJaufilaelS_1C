@@ -1,15 +1,21 @@
+class Stack:
+    def __init__(self):
+        self.items = []  
 
-from  soal_3 import enqueue,dequeue
-while True :
-    opsi = int(input('Masukan pesanan : '))
+    def tampilan(self):
+        print('''Pilihan
+              1. Tambah Antrian
+              2. Lanjut Ke Antrian Berikutnya
+              3. Keluar
+''')
 
-    if opsi == 1:
-        item = input('Daftar Pesanan :')
-        enqueue(item)
-        
-    else:
-        opsi == 2
-        dequeue()
-    
-    print(enqueue())
-    print(dequeue())
+
+    def push(self, push):
+        self.items.append(push)
+        print(f'"{push}" ditambahkan ke dalam antrian')
+
+    def pop(self):
+        if self.isEmpty():
+            print("Antrian Kosong")
+        else:
+            self.items.pop(0)
